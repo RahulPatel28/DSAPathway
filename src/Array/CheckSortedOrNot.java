@@ -11,7 +11,7 @@ public class CheckSortedOrNot {
         return true;
     }
     public static void main(String[] args) {
-        int arr[] = {1,2,3,4};
+        int arr[] = {3,4,5,1,2};
         System.out.println(isSorted(arr));
     }
 }
