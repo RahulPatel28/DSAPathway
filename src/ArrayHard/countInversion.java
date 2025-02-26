@@ -40,5 +40,5 @@ public class countInversion {
         int temp[] = new int[n];
         return mergeSortAndCount(arr, temp, 0, n - 1);
     }
-}
+
 }
