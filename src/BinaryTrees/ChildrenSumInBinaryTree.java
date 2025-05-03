@@ -1,6 +1,6 @@
 package BinaryTrees;
 
-public class ChildernSumInBinaryTree {
+public class ChildrenSumInBinaryTree {
     static boolean flag = true;
 
     public static int dfs(Node root) {
