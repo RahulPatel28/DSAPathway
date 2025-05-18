@@ -1,10 +1,8 @@
 package BinarySearchTree;
 
 
-import BinarySearchTree.TreeNode;
-
 public class SearchInBST {
-    public TreeNode searchBST(TreeNode root, int val) {
+    public Node searchBST(Node root, int val) {
         if(root == null){
             return null;
         }
