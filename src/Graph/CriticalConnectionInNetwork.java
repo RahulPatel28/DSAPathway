@@ -6,13 +6,9 @@ import java.util.List;
 public class CriticalConnectionInNetwork {
     private int timer = 1;
 
-
     private void dfs(int node, int parent, int[] vis,
-
                      ArrayList<ArrayList<Integer>> adj,
-
                      int[] tin, int[] low,
-
                      List<List<Integer>> bridges) {
 
 
