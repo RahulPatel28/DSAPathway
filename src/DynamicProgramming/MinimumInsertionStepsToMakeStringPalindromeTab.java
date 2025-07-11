@@ -20,7 +20,6 @@ public class MinimumInsertionStepsToMakeStringPalindromeTab {
                 }
             }
         }
-
         return n - dp[0][n - 1];
     }
 }
