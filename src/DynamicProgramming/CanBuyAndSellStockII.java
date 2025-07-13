@@ -2,7 +2,7 @@ package DynamicProgramming;
 
 import java.util.Arrays;
 
-public class CanBuyNadSellStockII {
+public class CanBuyAndSellStockII {
         private int solve(int i, int canBuy, int[] prices, int[][] dp) {
             if (i == prices.length) return 0;
 
