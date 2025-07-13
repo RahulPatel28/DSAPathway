@@ -22,18 +22,17 @@ public class CanBuyAndSellStockIV {
 
             return dp[i][canBuy][cap] = profit;
         }
-
-        public int maxProfit(int[] prices) {
+        public int maxProfit(int k, int[] prices) {
             int n = prices.length;
 
-            int[][][] dp = new int[n][2][3];
+            int[][][] dp = new int[n][2][k+1];
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < 2; j++) {
                     Arrays.fill(dp[i][j], -1);
                 }
             }
 
-            return solve(0, 1, 2, prices, dp);
+            return solve(0, 1, k, prices, dp);
         }
     }
 
