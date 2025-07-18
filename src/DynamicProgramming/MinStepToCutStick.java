@@ -1,8 +1,8 @@
 package DynamicProgramming;
 
-import java.util.*;
+import java.util.Arrays;
 
-public class MinStepsToCutStick {
+public class MinStepToCutStick {
         public int minCost(int n, int[] cuts) {
             int c = cuts.length;
             int[] newCuts = new int[c + 2];
