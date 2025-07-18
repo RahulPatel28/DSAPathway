@@ -3,32 +3,35 @@ package DynamicProgramming;
 import java.util.*;
 
 public class MinStepsToCutStick {
+        public int minCost(int n, int[] cuts) {
+            int c = cuts.length;
+            int[] newCuts = new int[c + 2];
+            for (int i = 0; i < c; i++) newCuts[i + 1] = cuts[i];
+            newCuts[0] = 0;
+            newCuts[c + 1] = n;
+            Arrays.sort(newCuts);
 
-        public static int f(int i, int j, List<Integer> cuts) {
-            if (i > j) return 0;
+            int[][] dp = new int[c + 2][c + 2];
 
-            int mini = Integer.MAX_VALUE;
+            return dfs(0, c + 1, newCuts, dp);
 
-            for (int ind = i; ind <= j; ind++) {
-                int cost = cuts.get(j + 1) - cuts.get(i - 1)
-                        + f(i, ind - 1, cuts)
-                        + f(ind + 1, j, cuts);
-                mini = Math.min(mini, cost);
+
+        }
+
+        private int dfs(int i, int j, int[] cuts, int[][] dp) {
+            if (j - i <= 1) return 0; // No cuts possible
+            if (dp[i][j] != 0) return dp[i][j];
+
+            int minCost = Integer.MAX_VALUE;
+
+            for (int k = i + 1; k < j; k++) {
+                int cost = cuts[j] - cuts[i] + dfs(i, k, cuts, dp) + dfs(k, j, cuts, dp);
+                minCost = Math.min(minCost, cost);
             }
 
-            return mini;
+            dp[i][j] = minCost;
+            return minCost;
         }
-        public int minCost(int n, int[] cutsArray) {
-            List<Integer> cuts = new ArrayList<>();
-            for (int cut : cutsArray) {
-                cuts.add(cut);
-            }
 
-            cuts.add(n); // push_back(n)
-            cuts.add(0); // insert 0 at beginning
-            Collections.sort(cuts);
-
-            return f(1, cuts.size() - 2, cuts);
-        }
     }
 
